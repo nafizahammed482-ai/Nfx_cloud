@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          npm install
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install --legacy-peer-deps
+          npm install --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/android
 
       - name: Build Web Application
         run: npm run build
@@ -64,4 +64,4 @@ jobs:
           name: NFX-Cloud-Debug-APK
           path: ${{ steps.find_apk.outputs.apk_path }}
           retention-days: 30
-          if-no-files-found: error
+          if-no-files-found: errorerror
