@@ -1,0 +1,12 @@
+{
+	"appId": "com.nfx.cloud",
+	"appName": "NFX Cloud",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"android": {
+		"allowMixedContent": true
+	},
+	"server": {
+		"androidScheme": "https"
+	}
+}
