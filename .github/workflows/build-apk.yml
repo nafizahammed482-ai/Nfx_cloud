@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install --legacy-peer-deps
-          npm install --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/android
+          npm install --legacy-peer-deps @capacitor/core@^8 @capacitor/cli@^8 @capacitor/android@^8
 
       - name: Build Web Application
         run: npm run build
