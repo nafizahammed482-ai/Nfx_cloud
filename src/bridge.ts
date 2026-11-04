@@ -1,3 +1,5 @@
+import { Capacitor } from '@capacitor/core';
+import { BiometricAuth } from '@aparajita/capacitor-biometric-auth';
 import { 
   subscribeCloudFiles, 
   subscribeTransfers, 
@@ -30,6 +32,11 @@ declare global {
       db: typeof db;
       rtdb: typeof rtdb;
       ready: boolean;
+      bio: {
+        isNative: boolean;
+        isAvailable: () => Promise<boolean>;
+        authenticate: (reason: string) => Promise<boolean>;
+      };
     };
   }
 }
@@ -44,7 +51,32 @@ window.NFX = {
   getBackendStatus,
   db,
   rtdb,
-  ready: true
+  ready: true,
+  bio: {
+    isNative: Capacitor.isNativePlatform(),
+    isAvailable: async () => {
+      try {
+        const r = await BiometricAuth.checkBiometry();
+        return !!r.isAvailable;
+      } catch {
+        return false;
+      }
+    },
+    authenticate: async (reason: string) => {
+      try {
+        await BiometricAuth.authenticate({
+          reason,
+          cancelTitle: 'Cancel',
+          allowDeviceCredential: true,
+          androidTitle: 'NFX Cloud',
+          androidSubtitle: reason,
+        });
+        return true;
+      } catch {
+        return false;
+      }
+    },
+  },
 };
 
 window.dispatchEvent(new CustomEvent('nfx-ready'));
