@@ -1,0 +1,25 @@
+{
+  "name": "nfx-cloud-backend",
+  "version": "1.0.0",
+  "description": "NFX Cloud Node.js Express & Telegram Bot Storage Backend",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "tsx index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "firebase": "^11.4.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.14.0",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2"
+  }
+}

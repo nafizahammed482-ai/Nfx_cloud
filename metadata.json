@@ -1,0 +1,6 @@
+{
+  "name": "NFX Cloud",
+  "description": "Personal Android Cloud Storage application with Firebase Firestore, Realtime Database, and Telegram Bot storage backend.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
